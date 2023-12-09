@@ -5,12 +5,15 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "wdio": "wdio run ./wdio.conf.js"
+    "wdio-ios": "npx wdio run ./config/wdio-ios.conf.js --spec ./test/specs/ios/*.js",
+    "wdio-android": "npx wdio run ./config/wdio-android.conf.js --spec ./test/specs/android/*.js"
+
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "chai": "^4.3.10",
     "wdio": "^6.0.1",
     "webdriverio": "^8.11.2"
   },
