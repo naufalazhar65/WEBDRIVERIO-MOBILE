@@ -5,11 +5,6 @@ const invalidPassword = "10203";
 
 describe('LOGIN TEST', () => {
     beforeEach(async () => {
-        // const dash = await driver.$("//XCUIElementTypeStaticText[@name=\"Products\"]");
-        // await dash.waitForExist({ timeout: 5000 });
-        // await expect(dash).toBeDisplayed()
-        // await expect(dash).toHaveText('Products')
-
         await driver.$('~tab bar option menu').click();
         await sleep(1000);
 
@@ -17,25 +12,25 @@ describe('LOGIN TEST', () => {
         await sleep(2000);
     });
 
-    // it('should not login with invalid credentials', async () => {
-    //     await driver.$('~Username input field').setValue(invalidUsername);
-    //     await sleep(1000);
+    it('should not login with invalid credentials', async () => {
+        await driver.$('~Username input field').setValue(invalidUsername);
+        await sleep(1000);
 
-    //     await driver.$('~Password input field').setValue(invalidPassword);
-    //     await sleep(1000);
+        await driver.$('~Password input field').setValue(invalidPassword);
+        await sleep(1000);
 
-    //     await driver.$('~Return').click();
-    //     await sleep(3000);
+        await driver.$('~Return').click();
+        await sleep(3000);
 
-    //     await driver.$("~Login button").click();
+        await driver.$("~Login button").click();
 
-    //     const errorMessage = await driver.$('~Provided credentials do not match any user in this service.');
-    //     await errorMessage.waitForExist({ timeout: 5000 });
-    //     // expect(await errorMessage.getText()).toBe('Provided credentials do not match any user in this service.');
-    //     await expect(errorMessage).toHaveText('Provided credentials do not match any user in this service.')
+        const errorMessage = await driver.$('~Provided credentials do not match any user in this service.');
+        await errorMessage.waitForExist({ timeout: 5000 });
+        // expect(await errorMessage.getText()).toBe('Provided credentials do not match any user in this service.');
+        await expect(errorMessage).toHaveText('Provided credentials do not match any user in this service.')
 
 
-    // });
+    });
 
     it('should login with valid credentials', async () => {
         await driver.$('~Username input field').setValue(username);
