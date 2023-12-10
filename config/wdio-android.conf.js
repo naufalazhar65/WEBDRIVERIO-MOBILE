@@ -1,8 +1,5 @@
 const projectPath = require("path")
-const androidAppPath = projectPath.join(
-    process.cwd(),
-    "app/android/Android-MyDemoAppRN.apk"
-);
+const androidAppPath = projectPath.join(process.cwd(),"app/android/Android-MyDemoAppRN.apk");
 
 
 exports.config = {
@@ -63,11 +60,13 @@ exports.config = {
     // https://saucelabs.com/platform/platform-configurator
     //
     capabilities: [{
+        platformName: "android",
         "appium:app": androidAppPath,
-        "platformName": "android",
+        "appium:automationName": "UiAutomator2",
+        "appium:devicenName": "Pixel 4 XL",
+
         // "appium:appWaitActivity": "com.swaglabsmobileapp.MainActivity"
         // "noReset": false,
-        // "automationName": "UiAutomator2",
         // "newCommandTimeout": "3600",
         // "udid": "emulator-5554",
 
@@ -120,8 +119,14 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    // services: ['appium'],
-    services: [],
+    // services: ['appium', {
+    //     args: {
+    //         address: 'locahost',
+    //         port: '4723'
+    //     },
+    //     logpath: './'
+    // }],
+    services: [],   
     
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber

@@ -63,10 +63,10 @@ exports.config = {
     // https://saucelabs.com/platform/platform-configurator
     //
     capabilities: [{
+        platformName: "iOS",
+        "appium:deviceName": "iPhone 15 pro",
         "appium:udid": "90DCAF9D-C7D3-4488-9A41-FE4CC8616CF2",
         "appium:automationName": "XCUITest",
-        "platformName": "iOS",
-        "appium:deviceName": "iPhone 15 pro",
         "appium:app": iosAppPath,
         // "appium:useXctest": true,
         // "appium:noReset": false,
